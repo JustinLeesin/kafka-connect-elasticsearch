@@ -3,6 +3,7 @@ package com.hannesstockner.connect.es;
 import org.apache.kafka.common.config.ConfigDef;
 import org.apache.kafka.common.utils.AppInfoParser;
 import org.apache.kafka.connect.connector.Task;
+import org.apache.kafka.connect.runtime.ConnectorConfig;
 import org.apache.kafka.connect.sink.SinkConnector;
 
 import java.util.ArrayList;
@@ -17,10 +18,11 @@ public class ElasticsearchSinkConnector extends SinkConnector {
 
   private String esHost;
   private String indexPrefix;
+    ConfigDef connectorConfigDef = ConnectorConfig.configDef();
 
   @Override
   public ConfigDef config(){
-    return this.config();
+      return connectorConfigDef;
   }
   @Override
   public String version() {
